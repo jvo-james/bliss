@@ -458,9 +458,17 @@
         ]
       },
       callback: function(response) {
-        // Redirect to success.html with the reference number in the URL
-        window.location.href = "https://jvo-james.github.io/bliss/success.html?reference=" + response.reference;
-      },
+  // Update the _next field with the reference number in the URL
+  var nextField = document.querySelector('input[name="_next"]');
+  if (nextField) {
+    nextField.value = "https://jvo-james.github.io/bliss/success.html?reference=" + response.reference;
+  }
+  // Optionally, update another hidden field to include the reference if needed
+  // var referenceField = document.getElementById('referenceField');
+  // if (referenceField) { referenceField.value = response.reference; }
+  // Now submit the form so FormSubmit processes it and then redirects to success.html
+  form.submit();
+},
       onClose: function() {
         alert('Payment window closed.');
       }
