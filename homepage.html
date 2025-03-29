@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Beauty Bliss Studio - Home</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-p+U5G0jYF0B+uC7Wf6Nv1zQ+2z2V/AXmZ5kJ5fChG+jFwzBq3k8tU3kQeG7vNUU2yA5P+e/0h1N0HJ7r7m0KZQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Animate.css for animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #fafafa;
+      color: #333;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    
+    /* Navigation */
+    nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(255, 255, 255, 0.97);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+    .container { width: 90%; max-width: 1200px; margin: auto; }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+    .nav-logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #d76a9a;
+    }
+    .nav-menu {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .nav-menu li a {
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    .nav-menu li a:hover {
+      color: #d76a9a;
+    }
+    
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(45deg, rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('salonhero.webp') center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      padding: 0 1rem;
+    }
+.hero::before {
+            background: rgba(0, 0, 0, 0.9);
+         }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.8rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    }
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      text-shadow: 1px 1px 8px rgba(0,0,0,0.2);
+    }
+    .hero button {
+      background: #d76a9a;
+      border: none;
+      padding: 0.9rem 2.5rem;
+      border-radius: 50px;
+      color: #fff;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .hero button:hover {
+      background: #bf5684;
+    }
+    
+    /* Informative Sections */
+    section {
+      padding: 4rem 0;
+    }
+    section h2 {
+      text-align: center;
+      font-size: 2.8rem;
+      margin-bottom: 1.5rem;
+      color: #d76a9a;
+      font-family: 'Playfair Display', serif;
+    }
+    
+    /* About Section */
+    .about {
+      background: #f7f7f7;
+    }
+    .about .about-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .about-text {
+      flex: 1 1 500px;
+    }
+    .about-text p {
+      font-size: 1.1rem;
+      margin-bottom: 1.2rem;
+      text-align: justify;
+    }
+    .about-img {
+      flex: 1 1 400px;
+      overflow: hidden;
+      border-radius: 15px;
+    }
+    .about-img img {
+      width: 100%;
+      transition: transform 0.5s ease;
+    }
+    .about-img:hover img {
+      transform: scale(1.05);
+    }
+    
+    /* Services Section */
+    .services {
+      background: #fff;
+    }
+    .services-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .service-card {
+      background: #fdfdfd;
+      border-radius: 15px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+    .service-card i {
+      font-size: 3rem;
+      color: #d76a9a;
+      margin-bottom: 1rem;
+    }
+    .service-card h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+    .service-card p {
+      font-size: 1rem;
+      color: #666;
+    }
+    
+    /* Process Section */
+    .process {
+      background: #f7f7f7;
+    }
+    .process-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 2rem;
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .process-step {
+      flex: 1 1 280px;
+      text-align: center;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .process-step:hover {
+      transform: translateY(-5px);
+    }
+    .process-step i {
+      font-size: 2.5rem;
+      color: #d76a9a;
+      margin-bottom: 1rem;
+    }
+    .process-step h4 {
+      font-size: 1.5rem;
+      margin-bottom: 0.8rem;
+    }
+    .process-step p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+    
+    /* Book Appointment Section */
+    .appointment {
+      background: url('book.jpg') center/cover no-repeat;
+      position: relative;
+      color: #fff;
+      text-align: center;
+      padding: 6rem 1rem;
+    }
+    .appointment::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 1;
+    }
+    .appointment-content {
+      position: relative;
+      z-index: 2;
+    }
+    .appointment-content h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .appointment-content p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .appointment-content button {
+      background: #d76a9a;
+      border: none;
+      padding: 0.9rem 2.5rem;
+      border-radius: 50px;
+      color: #fff;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .appointment-content button:hover {
+      background: #bf5684;
+    }
+    
+
+    /* Contact Section */
+    .contact { padding: 60px 20px; background: var(--light-bg); }
+    .contact h2 { text-align: center; margin-bottom: 40px; color: #d76a9a; }
+    .contact-container {
+      max-width: 800px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: flex-start;
+      justify-content: center;
+    }
+    .contact-info, .contact-form {
+      flex: 1 1 350px;
+      background: var(--light-bg);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .contact-info h3, .contact-form h3 {
+      color: #d76a9a;
+      margin-bottom: 15px;
+      font-size: 1.8em;
+    }
+    .contact-info p { font-size: 1.1em; margin-bottom: 10px; }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      font-size: 1em;
+    }
+    .contact-form button {
+      padding: 12px 20px;
+      background: #d76a9a;
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .contact-form button:hover { background: #8a1616; }
+
+
+
+    /* Footer */
+    footer {
+      background: #333;
+      color: #fff;
+      padding: 2rem 0;
+      text-align: center;
+    }
+    footer p { font-size: 0.9rem; }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .about .about-container, .process-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .hero h1 { font-size: 3rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="container nav-container">
+      <div class="nav-logo"> <i class="fas fa-spa"></i>Beauty Bliss</div>
+      <ul class="nav-menu">
+        <li><a href="#hero"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+        <li><a href="#services"><i class="fas fa-concierge-bell"></i> Services</a></li>
+        <li><a href="#process"><i class="fas fa-cogs"></i> Our Process</a></li>
+        <li><a href="#appointment"><i class="fas fa-calendar-check"></i> Book Now</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div>
+      <h1>Experience Beauty Beyond the Ordinary</h1>
+      <p><i class="fas fa-quote-left"></i> Your ultimate destination for exquisite pedicure, manicure, and lash artistry <i class="fas fa-quote-right"></i></p>
+      <button onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})"><i class="fas fa-arrow-down"></i> Discover More</button>
+    </div>
+  </section>
+  
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container about-container">
+      <div class="about-text">
+        <h2>About Beauty Bliss</h2>
+        <p>At Beauty Bliss Studio, we merge art with technology to redefine self-care. Our dedicated team delivers a transformative experience—where every treatment is crafted with passion and precision.</p>
+        <p>We believe in a personalized approach that not only beautifies but also rejuvenates your body and mind. Step into our haven and let us bring out the best in you.</p>
+      </div>
+      <div class="about-img">
+        <img src="nails.webp" alt="About Beauty Bliss">
+      </div>
+    </div>
+  </section>
+  
+  <!-- Services Section -->
+  <section id="services" class="services">
+    <h2>Our Signature Services</h2>
+    <div class="container services-container">
+      <div class="service-card">
+        <i class="fas fa-tooth"></i>
+        <h3>Elegant Pedicure</h3>
+        <p>Indulge your feet in a luxurious treatment that includes exfoliation, massage, and an exquisite polish selection.</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-hand-sparkles"></i>
+        <h3>Chic Manicure</h3>
+        <p>Our manicure service highlights precision artistry with modern techniques and a vibrant palette to suit your style.</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-eye"></i>
+        <h3>Glamorous Lashes</h3>
+        <p>Accentuate your eyes with our expert lash treatments designed to provide volume, length, and a natural allure.</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Process Section -->
+  <section id="process" class="process">
+    <h2>Our Creative Process</h2>
+    <div class="container process-container">
+      <div class="process-step">
+        <i class="fas fa-handshake"></i>
+        <h4>Consultation</h4>
+        <p>Understanding your unique needs to tailor a beauty experience just for you.</p>
+      </div>
+      <div class="process-step">
+        <i class="fas fa-paint-brush"></i>
+        <h4>Personalized Design</h4>
+        <p>We combine modern trends with timeless elegance to craft your look.</p>
+      </div>
+      <div class="process-step">
+        <i class="fas fa-heart"></i>
+        <h4>Care & Perfection</h4>
+        <p>Each treatment is delivered with love, care, and attention to every detail.</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Book Appointment Section -->
+  <section id="appointment" class="appointment">
+    <div class="appointment-content">
+      <h2>Ready for a Transformation?</h2>
+      <p>Book your appointment today and step into a world of beauty and bliss.</p>
+      <button onclick="window.location.href='mailto:bookings@beautybliss.com'">Book Now</button>
+    </div>
+  </section>
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <h2 class="section-title animate__animated animate__fadeInDown">Get in Touch</h2>
+    <div class="contact-container animate__animated animate__fadeInUp">
+      <div class="contact-info">
+        <h3>Contact Info</h3>
+        <p><i class="fas fa-phone"></i> +123 456 7890</p>
+        <p><i class="fas fa-envelope"></i> info@chiccohair.com</p>
+        <p><i class="fas fa-map-marker-alt"></i> 456 Style Avenue, Trend City</p>
+      </div>
+      <div class="contact-form">
+        <h3>Send Us a Message</h3>
+        <form action="YOUR_FORMSUB_ENDPOINT_FOR_CONTACT" method="POST">
+          <label for="contactName">Your Name</label>
+          <input type="text" id="contactName" name="contactName" placeholder="Your Name" required />
+          <label for="contactEmail">Your Email</label>
+          <input type="email" id="contactEmail" name="contactEmail" placeholder="you@example.com" required />
+          <label for="contactMessage">Message</label>
+          <textarea id="contactMessage" name="contactMessage" rows="4" placeholder="Your Message" required></textarea>
+          <button type="submit">Send Message <i class="fas fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Beauty Bliss Studio. All Rights Reserved.</p>
+      <p>
+        <a href="https://facebook.com" target="_blank" style="color: #fff; margin-right: 1rem;"><i class="fab fa-snapchat"></i></a>
+        <a href="https://instagram.com" target="_blank" style="color: #fff; margin-right: 1rem;"><i class="fab fa-instagram"></i></a>
+        <a href="https://twitter.com" target="_blank" style="color: #fff;"><i class="fab fa-whatsapp"></i></a>
+      </p>
+    </div>
+  </footer>
+  
+  <!-- JavaScript for Smooth Scroll & Animation (Optional Enhancements) -->
+  <script>
+    // You can add more interactivity here if desired.
+    // For example, using IntersectionObserver to animate elements on scroll.
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('animate');
+        }
+      });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('.service-card, .process-step, .about-img').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>

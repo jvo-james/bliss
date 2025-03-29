@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Our Services | Beauty Bliss Studio</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-p+U5G0jYF0B+uC7Wf6Nv1zQ+2z2V/AXmZ5kJ5fChG+jFwzBq3k8tU3kQeG7vNUU2yA5P+e/0h1N0HJ7r7m0KZQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Animate.css for animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #fff;
+      color: #333;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    
+    /* Navigation */
+    nav {
+      width: 100%;
+      background: #fff;
+      border-bottom: 1px solid #eee;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+    .nav-logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #d76a9a;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .nav-menu {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .nav-menu li a {
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    .nav-menu li a:hover {
+      color: #d76a9a;
+    }
+    
+    /* Hero Section */
+    .hero {
+      background: url('servicehero.jpg') center/cover no-repeat;
+      height: 60vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.55);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.8rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.35);
+    }
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      text-shadow: 1px 1px 8px rgba(0,0,0,0.25);
+    }
+    
+    /* Services Section */
+    .services-section {
+      padding: 4rem 0;
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .services-section h2 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      color: #d76a9a;
+      font-family: 'Playfair Display', serif;
+      position: relative;
+      padding-bottom: 1rem;
+    }
+    .services-section h2::after {
+      content: "\f004";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      font-size: 2rem;
+      color: #d76a9a;
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0.3;
+    }
+    
+    .service-item {
+      margin-bottom: 4rem;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 3rem;
+    }
+    .service-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .service-header i {
+      font-size: 2.8rem;
+      color: #d76a9a;
+    }
+    .service-header h3 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #333;
+    }
+    .service-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .service-description, .service-pricing {
+      flex: 1 1 300px;
+    }
+    .service-description p {
+      margin-bottom: 1.2rem;
+      font-size: 1.1rem;
+      text-align: justify;
+      line-height: 1.8;
+    }
+    .service-pricing h4 {
+      font-size: 1.8rem;
+      color: #d76a9a;
+      margin-bottom: 0.8rem;
+      font-family: 'Playfair Display', serif;
+    }
+    .pricing-list {
+      list-style: none;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    .pricing-list li {
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Specialty Treatments */
+    .specialty {
+      margin-top: 1.5rem;
+      padding-left: 1rem;
+      border-left: 4px solid #d76a9a;
+    }
+    .specialty h5 {
+      font-size: 1.4rem;
+      color: #555;
+      margin-bottom: 0.5rem;
+    }
+    .specialty p {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Special Offers/Promotions Section */
+    .offers {
+      background: #fff;
+      padding: 4rem 0;
+    }
+    .offers h2 {
+      text-align: center;
+      font-size: 2.8rem;
+      margin-bottom: 1.5rem;
+      color: #d76a9a;
+      font-family: 'Playfair Display', serif;
+    }
+    .offers-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 2rem;
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .offer {
+      flex: 1 1 300px;
+      background: #fdfdfd;
+      padding: 1.5rem;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .offer:hover {
+      transform: translateY(-5px);
+    }
+    .offer i {
+      font-size: 3rem;
+      color: #d76a9a;
+      margin-bottom: 1rem;
+    }
+    .offer h3 {
+      font-size: 1.8rem;
+      margin-bottom: 0.8rem;
+    }
+    .offer p {
+      font-size: 1rem;
+      color: #555;
+    }
+    
+
+      /* Footer */
+    footer {
+      background: #333;
+      color: #fff;
+      padding: 2rem 0;
+      text-align: center;
+    }
+    footer p { font-size: 0.9rem; }
+    footer p a { margin-right: 1rem; }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .about .about-container, .process-container, .offers-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .hero h1 { font-size: 3rem; }
+      .value-items, .offers-container { flex-direction: column; }
+    }
+
+    /* Animations */
+    .animate-fadeIn {
+      animation: fadeIn 1.2s both;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .service-content {
+        flex-direction: column;
+      }
+      .hero h1 { font-size: 3rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <div class="nav-logo"><i class="fas fa-spa"></i> Beauty Bliss</div>
+      <ul class="nav-menu">
+        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="services.html"><i class="fas fa-concierge-bell"></i> Services</a></li>
+        <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+        <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <!-- Hero Section -->
+  <section class="hero animate-fadeIn">
+    <div class="hero-content">
+      <h1>Our Signature Services</h1>
+      <p>Discover detailed treatments tailored for beauty, care, and indulgence.</p>
+    </div>
+  </section>
+  
+  <!-- Main Services Section -->
+  <div class="services-section">
+    <h2 class="animate-fadeIn">Indulge in Excellence</h2>
+    
+    <!-- Pedicure Service -->
+    <div class="service-item animate__animated animate__fadeInUp" id="pedicure">
+      <div class="service-header">
+        <i class="fas fa-shoe-prints"></i>
+        <h3>Elegant Pedicure</h3>
+      </div>
+      <div class="service-content">
+        <div class="service-description">
+          <p>Step into a world of rejuvenation with our Elegant Pedicure. Designed to pamper your feet, this treatment includes a soothing soak, precise nail care, gentle exfoliation, and a luxurious massage—all finished with your choice of vibrant or subtle polish.</p>
+          <div class="specialty">
+            <h5>Specialty Treatments</h5>
+            <p><strong>Deluxe Spa Pedicure:</strong> Enjoy an extended massage and a hydrating mask for a truly opulent experience.</p>
+            <p><strong>Therapeutic Pedicure:</strong> Tailored care that targets calluses and dry skin with advanced techniques.</p>
+          </div>
+        </div>
+        <div class="service-pricing">
+          <h4>Pricing</h4>
+          <ul class="pricing-list">
+            <li>Classic Pedicure: <strong>GHS 120</strong></li>
+            <li>Deluxe Spa Pedicure: <strong>GHS 150</strong></li>
+            <li>Therapeutic Pedicure: <strong>GHS 200</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Manicure Service -->
+    <div class="service-item animate__animated animate__fadeInUp" id="manicure">
+      <div class="service-header">
+        <i class="fas fa-hand-sparkles"></i>
+        <h3>Chic Manicure</h3>
+      </div>
+      <div class="service-content">
+        <div class="service-description">
+          <p>Our Chic Manicure is a celebration of precision and artistry. Enjoy expert nail shaping, meticulous cuticle care, gentle exfoliation, and your preferred polish finish. Whether you desire classic elegance or modern designs, our professionals craft your nails to perfection.</p>
+          <div class="specialty">
+            <h5>Specialty Treatments</h5>
+            <p><strong>Gel Manicure:</strong> Achieve long-lasting shine and durability, perfect for a busy lifestyle.</p>
+            <p><strong>Acrylic Nails:</strong> Custom enhancements that offer length and a flawless finish for special occasions.</p>
+            <p><strong>Nail Art & Embellishments:</strong> Personalized designs from subtle elegance to bold statements.</p>
+          </div>
+        </div>
+        <div class="service-pricing">
+          <h4>Pricing</h4>
+          <ul class="pricing-list">
+            <li>Classic Manicure: <strong>GHS 130</strong></li>
+            <li>Gel Manicure: <strong>GHS 150</strong></li>
+            <li>Acrylic Nails (Full Set): <strong>GHS 200</strong></li>
+            <li>Nail Art & Embellishments: <strong>Starts at GHS 50</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Lashes Service -->
+    <div class="service-item animate__animated animate__fadeInUp" id="lashes">
+      <div class="service-header">
+        <i class="fas fa-eye"></i>
+        <h3>Glamorous Lashes</h3>
+      </div>
+      <div class="service-content">
+        <div class="service-description">
+          <p>Enhance your natural allure with our Glamorous Lashes service. Whether you desire subtle enhancements or dramatic volume, our lash treatments are meticulously tailored to accentuate your eyes with premium products and expert techniques.</p>
+          <div class="specialty">
+            <h5>Specialty Treatments</h5>
+            <p><strong>Lash Extensions:</strong> Custom application using classic, volume, or hybrid techniques for a bespoke look.</p>
+            <p><strong>Lash Lift & Tint:</strong> Refresh your natural lashes with a lift and tint for an eye-opening effect.</p>
+            <p><strong>Refill Service:</strong> Maintain your perfect lash look with regular touch-ups.</p>
+          </div>
+        </div>
+        <div class="service-pricing">
+          <h4>Pricing</h4>
+          <ul class="pricing-list">
+            <li>Classic Lash Extensions: <strong>GHS 165</strong></li>
+            <li>Volume Lash Extensions: <strong>GHS 185</strong></li>
+            <li>Lash Lift & Tint: <strong>GHS 150</strong></li>
+            <li>Refill Service: <strong>GHS 130</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <!-- Special Offers/Promotions Section -->
+  <section id="offers" class="offers">
+    <div class="container">
+      <h2>Special Offers & Promotions <i class="fas fa-tags"></i></h2>
+      <div class="offers-container">
+        <div class="offer">
+          <i class="fas fa-gift"></i>
+          <h3>Spring Special</h3>
+          <p>Enjoy 20% off on your first appointment this spring season.</p>
+        </div>
+        <div class="offer">
+          <i class="fas fa-star"></i>
+          <h3>Loyalty Rewards</h3>
+          <p>Collect points and earn a free service after five visits.</p>
+        </div>
+        <div class="offer">
+          <i class="fas fa-hand-holding-usd"></i>
+          <h3>Bundle Deals</h3>
+          <p>Save with our combined service packages on pedicure, manicure, and lashes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Beauty Bliss Studio. All Rights Reserved.</p>
+      <p>
+        <a href="https://facebook.com" target="_blank" style="color: #fff; margin-right: 1rem;"><i class="fab fa-facebook"></i></a>
+        <a href="https://instagram.com" target="_blank" style="color: #fff; margin-right: 1rem;"><i class="fab fa-instagram"></i></a>
+        <a href="https://twitter.com" target="_blank" style="color: #fff;"><i class="fab fa-twitter"></i></a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

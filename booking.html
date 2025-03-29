@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Book Your Appointment | Beauty Bliss Studio</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Playfair+Display:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet" />
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Animate.css for subtle animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+    /* Global Styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+    body { font-family: 'Montserrat', sans-serif; background: #fff; color: #333; line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    
+    /* Container */
+    .container { width: 90%; max-width: 1200px; margin: auto; padding: 2rem 0; }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(45deg, rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('book.jpg') center/cover no-repeat;
+      height: 50vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      position: relative;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.2rem;
+      margin-bottom: 0.8rem;
+      text-shadow: 1px 1px 8px rgba(0,0,0,0.3);
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      text-shadow: 1px 1px 8px rgba(0,0,0,0.25);
+    }
+    
+    /* Booking Section */
+    .booking-section { background: #f9f9f9; padding: 3rem 0; }
+    .booking-section h2 {
+      text-align: center;
+      font-size: 2.4rem;
+      margin-bottom: 0.8rem;
+      color: #d76a9a;
+      font-family: 'Playfair Display', serif;
+    }
+    .instructions {
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+      text-align: center;
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.8;
+    }
+    .instructions p { margin-bottom: 1rem; }
+    
+    /* Form Styles */
+    .booking-form {
+      background: #fff;
+      padding: 1.8rem 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      max-width: 800px;
+      margin: auto;
+    }
+    .booking-form label {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+      color: #2c2c2c;
+      font-size: 0.95rem;
+    }
+    .booking-form input,
+    .booking-form select,
+    .booking-form textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 0.95rem;
+    }
+    .booking-form button {
+      background: #d76a9a; /* Pink accent */
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .booking-form button:hover {
+      background: #bf5684;
+    }
+    
+    /* Policies & Inquiries */
+    .policies, .inquiries {
+      background: #fff;
+      padding: 1.2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      margin-top: 1.5rem;
+    }
+    .policies h3, .inquiries h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.8rem;
+      color: #2c2c2c;
+      font-family: 'Playfair Display', serif;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .policies ul { margin-left: 1rem; }
+    .policies li, .inquiries p { margin-bottom: 0.7rem; font-size: 0.95rem; color: #555; }
+    
+/* Accordion Wrapper */
+#accordionServiceSelection {
+  margin-bottom: 1.5rem;
+}
+#accordionServiceSelection h3 {
+  font-size: 1.6rem;
+  color: #2c2c2c;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Accordion Section */
+.accordion-section {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  background: linear-gradient(135deg, #ffffff, #f7f7f7);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.accordion-section:hover {
+  transform: scale(1.01);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.accordion-section summary {
+  padding: 0.8rem 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #d76a9a;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #fdfdfd, #f0f0f0);
+  border-bottom: 1px solid #e0e0e0;
+}
+.accordion-section[open] summary {
+  background: linear-gradient(135deg, #fff, #f7f7f7);
+}
+.service-options {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.service-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  padding: 0.5rem;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  background: #fff;
+  transition: background 0.3s ease;
+}
+.service-option:hover {
+  background: #f5f5f5;
+}
+.service-option input {
+  transform: scale(1.1);
+  accent-color: #d76a9a;
+}
+.option-text {
+  flex-grow: 1;
+}
+.option-price {
+  color: #555;
+  font-weight: 500;
+}
+
+.learn-more-container {
+  margin-top: 1.5rem;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.learn-more-text {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 0.8rem;
+}
+
+.learn-more {
+  display: inline-block;
+  margin-bottom: 2rem;  /* Ensures space between Learn More and Pay button */
+}
+
+.learn-more button {
+  background: #d76a9a;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.learn-more button:hover {
+  background: #bf5684;
+}
+
+/* Optional: add extra margin to the pay button container */
+.booking-form button[type="button"] {
+  margin-top: 2rem;
+}
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .booking-section { padding: 2rem 0; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1><i class="fas fa-calendar-check"></i> Book Your Appointment</h1>
+      <p><i class="fas fa-quote-left"></i> Schedule your premium beauty service today <i class="fas fa-quote-right"></i></p>
+    </div>
+  </section>
+  
+  <!-- Booking Form Section -->
+  <section class="booking-section">
+    <div class="container">
+      <h2><i class="fas fa-edit"></i> Appointment Booking</h2>
+      <div class="instructions">
+        <p><i class="fas fa-info-circle"></i> Please complete the form below to secure your appointment. All payments are processed securely via Paystack.</p>
+        <p><i class="fas fa-info-circle"></i> Upon successful payment, you will receive a confirmation email.</p>
+      </div>
+      
+      <form id="bookingForm" class="booking-form" action="https://formsubmit.co/your-email@example.com" method="POST">
+        <!-- Booking Details -->
+        <label for="fullName"><i class="fas fa-user"></i> Full Name</label>
+        <input type="text" id="fullName" name="fullName" placeholder="Your Full Name" required>
+        
+        <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+        <input type="email" id="email" name="email" placeholder="Your Email" required>
+        
+        <label for="phone"><i class="fas fa-phone"></i> Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required>
+        
+        <label for="appointmentDate"><i class="fas fa-calendar-alt"></i> Appointment Date</label>
+        <input type="date" id="appointmentDate" name="appointmentDate" required>
+        
+        <label for="appointmentTime"><i class="fas fa-clock"></i> Appointment Time</label>
+        <input type="time" id="appointmentTime" name="appointmentTime" required>
+        
+<!-- Accordion Service Selection (as previously defined) -->
+<div id="accordionServiceSelection">
+  <h3><i class="fas fa-list"></i> Select Services</h3>
+  
+  <!-- Elegant Pedicure -->
+  <details class="accordion-section">
+    <summary><i class="fas fa-shoe-prints"></i> Elegant Pedicure</summary>
+    <div class="service-options">
+      <label class="service-option">
+        <input type="checkbox" name="services[]" value="Classic Pedicure" data-price="120">
+        <span class="option-text">Classic Pedicure</span>
+        <span class="option-price">(GHS 120)</span>
+      </label>
+      <label class="service-option">
+        <input type="checkbox" name="services[]" value="Deluxe Spa Pedicure" data-price="150">
+        <span class="option-text">Deluxe Spa Pedicure</span>
+        <span class="option-price">(GHS 150)</span>
+      </label>
+      <label class="service-option">
+        <input type="checkbox" name="services[]" value="Therapeutic Pedicure" data-price="200">
+        <span class="option-text">Therapeutic Pedicure</span>
+        <span class="option-price">(GHS 200)</span>
+      </label>
+    </div>
+  </details>
+  
+  <!-- Chic Manicure -->
+  <details class="accordion-section">
+    <summary><i class="fas fa-hand-sparkles"></i> Chic Manicure</summary>
+    <div class="service-options">
+      <label class="service-option">
+        <input type="checkbox" name="services[]" value="Classic Manicure" data-price="130">
+        <span class="option-text">Classic Manicure</span>
+        <span class="option-price">(GHS 130)</span>
+      </label>
+      <label class="service-option">
+        <input type="checkbox" name="services[]" value="Gel Manicure" data-price="150">
+        <span class="option-text">Gel Manicure</span>
+        <span class="option-price">(GHS 150)</span>
+      </label>
+      <label class="service-option">
+        <input type="checkbox" name="services[]" value="Acrylic Nails (Full Set)" data-price="200">
+        <span class="option-text">Acrylic Nails (Full Set)</span>
+        <span class="option-price">(GHS 200)</span>
+      </label>
+      <label class="service-option">
+        <input type="checkbox" name="services[]" value="Nail Art & Embellishments" data-price="50">
+        <span class="option-text">Nail Art & Embellishments</span>
+        <span class="option-price">(GHS 50)</span>
+      </label>
+    </div>
+  </details>
+  
+  <!-- Glamorous Lashes -->
+  <details class="accordion-section">
+    <summary><i class="fas fa-eye"></i> Glamorous Lashes</summary>
+    <div class="service-options">
+      <label class="service-option">
+        <input type="checkbox" name="services[]" value="Classic Lash Extensions" data-price="165">
+        <span class="option-text">Classic Lash Extensions</span>
+        <span class="option-price">(GHS 165)</span>
+      </label>
+      <label class="service-option">
+        <input type="checkbox" name="services[]" value="Volume Lash Extensions" data-price="185">
+        <span class="option-text">Volume Lash Extensions</span>
+        <span class="option-price">(GHS 185)</span>
+      </label>
+      <label class="service-option">
+        <input type="checkbox" name="services[]" value="Lash Lift & Tint" data-price="150">
+        <span class="option-text">Lash Lift & Tint</span>
+        <span class="option-price">(GHS 150)</span>
+      </label>
+      <label class="service-option">
+        <input type="checkbox" name="services[]" value="Refill Service" data-price="130">
+        <span class="option-text">Refill Service</span>
+        <span class="option-price">(GHS 130)</span>
+      </label>
+    </div>
+  </details>
+</div>
+
+<!-- Learn More Section -->
+<div class="learn-more-container">
+  <p class="learn-more-text">Want more information about our services and packages? Click the button below for full details.</p>
+  <div class="learn-more">
+    <button onclick="window.location.href='services.html'">
+      <i class="fas fa-info-circle"></i> Learn More About Our Services
+    </button>
+  </div>
+</div>
+        
+        <!-- Hidden fields for FormSubmit configuration -->
+        <input type="hidden" name="_next" value="success.html">
+        <input type="hidden" name="_captcha" value="false">
+        
+        <!-- Payment Button triggers Paystack with validation -->
+        <button type="button" onclick="payWithPaystack()">
+          <i class="fas fa-credit-card"></i> Pay & Book Appointment
+        </button>
+      </form>
+      
+      <!-- Cancellation Policies -->
+      <div class="policies">
+        <h3><i class="fas fa-exclamation-triangle"></i> Cancellation Policies</h3>
+        <ul>
+          <li><i class="fas fa-check"></i> Cancellations must be made at least 24 hours before the appointment.</li>
+          <li><i class="fas fa-check"></i> Late cancellations may incur a fee of up to 50% of the service cost.</li>
+          <li><i class="fas fa-check"></i> Refunds are subject to approval of the cancellation request.</li>
+        </ul>
+      </div>
+      
+      <!-- Inquiries/Contact Information -->
+      <div class="inquiries">
+        <h3><i class="fas fa-question-circle"></i> For Inquiries</h3>
+        <p><i class="fas fa-map-marker-alt"></i> 123 Beauty Blvd, Suite 100, City, Country</p>
+        <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+        <p><i class="fas fa-envelope"></i> support@beautybliss.com</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Paystack & FormSubmit Integration Script -->
+  <!-- Include Paystack inline script -->
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+  <script>
+    function payWithPaystack() {
+      // Get the booking form element
+      var form = document.getElementById('bookingForm');
+
+      // Check if the form is valid using the HTML5 validation API
+      if (!form.checkValidity()) {
+        alert("Please fill out all fields correctly.");
+        form.reportValidity();
+        return false;
+      }
+      
+      // Retrieve the email value for Paystack
+      var email = document.getElementById('email').value;
+      // Example: 5000 kobo (i.e., 50.00 NGN) – adjust the amount as needed.
+      var amount = 5000;
+
+      // Initialize Paystack payment
+      var handler = PaystackPop.setup({
+        key: 'pk_test_297586e51710e83d3c159bfe71ff45c7e23411fa', // Replace with your actual Paystack public key
+        email: email,
+        amount: amount,
+        currency: 'NGN',
+        ref: '' + Math.floor((Math.random() * 1000000000) + 1),
+        metadata: {
+          custom_fields: [
+            {
+              display_name: "Full Name",
+              variable_name: "full_name",
+              value: document.getElementById('fullName').value
+            }
+          ]
+        },
+        callback: function(response) {
+          // On successful payment, submit the form (which redirects to success.html)
+          form.submit();
+        },
+        onClose: function() {
+          alert('Payment window closed.');
+        }
+      });
+      handler.openIframe();
+    }
+  </script>
+
+<script>
+  function payWithPaystack() {
+    // Get the booking form element
+    var form = document.getElementById('bookingForm');
+
+    // Validate the form using the HTML5 validation API
+    if (!form.checkValidity()) {
+      alert("Please fill out all fields correctly.");
+      form.reportValidity();
+      return false;
+    }
+    
+    // Gather all checked service checkboxes and sum their prices
+    var serviceCheckboxes = document.querySelectorAll('input[name="services[]"]:checked');
+    if (serviceCheckboxes.length === 0) {
+      alert("Please select at least one service.");
+      return false;
+    }
+    
+    var totalPrice = 0;
+    var selectedServices = [];
+    serviceCheckboxes.forEach(function(checkbox) {
+      var price = parseFloat(checkbox.getAttribute('data-price'));
+      totalPrice += price;
+      selectedServices.push(checkbox.value);
+    });
+    
+    // Convert total price to smallest currency unit (multiply by 100)
+    var amount = totalPrice * 100; // e.g., GHS 120 becomes 12000
+
+    // Retrieve email value for Paystack
+    var email = document.getElementById('email').value;
+
+    // Initialize Paystack payment
+    var handler = PaystackPop.setup({
+      key: 'pk_test_297586e51710e83d3c159bfe71ff45c7e23411fa', // Replace with your Paystack public key
+      email: email,
+      amount: amount,
+      currency: 'GHS',
+      ref: '' + Math.floor((Math.random() * 1000000000) + 1),
+      metadata: {
+        custom_fields: [
+          {
+            display_name: "Full Name",
+            variable_name: "full_name",
+            value: document.getElementById('fullName').value
+          },
+          {
+            display_name: "Services Selected",
+            variable_name: "services_selected",
+            value: selectedServices.join(', ')
+          }
+        ]
+      },
+      callback: function(response) {
+        // On successful payment, submit the form
+        form.submit();
+      },
+      onClose: function() {
+        alert('Payment window closed.');
+      }
+    });
+    handler.openIframe();
+  }
+</script>
+
+</body>
+</html>

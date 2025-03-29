@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Glamour Essence Salon</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+    /* Global Styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Montserrat', sans-serif; line-height: 1.6; color: #444; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    img { max-width: 100%; display: block; }
+    /* Navbar */
+    header { position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.95); z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; }
+    .navbar .logo { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #B22222; font-weight: 700; }
+    .navbar nav ul { display: flex; gap: 25px; }
+    .navbar nav ul li a { font-weight: 600; color: #444; transition: color 0.3s ease; }
+    .navbar nav ul li a:hover { color: #B22222; }
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      background: url('https://source.unsplash.com/1600x900/?beauty,salon') center/cover no-repeat;
+      display: flex; align-items: center; justify-content: center; text-align: center; position: relative;
+    }
+    .hero::before {
+      content: "";
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    .hero-content {
+      position: relative;
+      color: #fff;
+      max-width: 800px;
+      padding: 20px;
+    }
+    .hero-content h1 {
+      font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 20px; animation: fadeInDown 1s;
+    }
+    .hero-content p {
+      font-size: 1.2rem; margin-bottom: 30px; animation: fadeInUp 1s;
+    }
+    .hero-content .btn {
+      background: #B22222; color: #fff; padding: 12px 30px; border: none; border-radius: 50px; cursor: pointer; transition: background 0.3s ease;
+    }
+    .hero-content .btn:hover { background: #a11f1f; }
+    /* Sections */
+    section { padding: 80px 20px; }
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      color: #B22222;
+      font-family: 'Playfair Display', serif;
+      position: relative;
+    }
+    .section-title::after {
+      content: "";
+      width: 80px;
+      height: 3px;
+      background: #B22222;
+      margin: 10px auto;
+      border-radius: 2px;
+    }
+    /* Services Section */
+    .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+    .service {
+      background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: center; transition: transform 0.3s ease;
+    }
+    .service:hover { transform: translateY(-5px); }
+    .service i { font-size: 3rem; color: #B22222; margin-bottom: 15px; }
+    .service h3 { font-size: 1.5rem; margin-bottom: 10px; color: #333; }
+    .service p { font-size: 1rem; color: #666; }
+    /* Appointment Section */
+    .appointment {
+      background: #fdfdfd;
+      padding: 60px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .appointment h2 { text-align: center; margin-bottom: 20px; color: #B22222; font-family: 'Playfair Display', serif; }
+    .appointment form { display: grid; gap: 15px; }
+    .appointment form input,
+    .appointment form select,
+    .appointment form textarea {
+      width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem;
+    }
+    .appointment form button {
+      background: #B22222; color: #fff; padding: 12px; border: none; border-radius: 50px; font-size: 1rem; cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .appointment form button:hover { background: #a11f1f; }
+    /* Gallery Section */
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; max-width: 1200px; margin: 0 auto; }
+    .gallery img { border-radius: 10px; object-fit: cover; height: 250px; transition: transform 0.3s ease; }
+    .gallery img:hover { transform: scale(1.05); }
+    /* Testimonials */
+    .testimonials { max-width: 800px; margin: 0 auto; text-align: center; font-style: italic; color: #555; }
+    .testimonials p { margin-bottom: 20px; }
+    .testimonials h4 { color: #B22222; margin-bottom: 5px; }
+    /* FAQ Section */
+    .faq { max-width: 800px; margin: 0 auto; }
+    .faq-item { margin-bottom: 20px; }
+    .faq-item h4 { background: #B22222; color: #fff; padding: 10px; cursor: pointer; }
+    .faq-item p { padding: 10px; border: 1px solid #B22222; display: none; }
+    /* Contact Section */
+    .contact { max-width: 600px; margin: 0 auto; }
+    .contact form input,
+    .contact form textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 15px; font-size: 1rem; }
+    .contact form button {
+      background: #B22222; color: #fff; padding: 12px 30px; border: none; border-radius: 50px; font-size: 1rem; cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .contact form button:hover { background: #a11f1f; }
+    /* Footer */
+    footer { background: #333; color: #fff; text-align: center; padding: 20px; font-size: 0.9rem; }
+    footer a { color: #B22222; margin: 0 10px; }
+    /* Confirmation Modal for Appointment Booking */
+    .modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .modal-content {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 500px;
+      width: 90%;
+      position: relative;
+    }
+    .modal-content h3 { margin-bottom: 20px; color: #B22222; }
+    .modal-content p { font-size: 1.1rem; margin-bottom: 20px; }
+    .modal-content button {
+      background: #B22222; color: #fff; padding: 10px 20px; border: none; border-radius: 50px; cursor: pointer; margin: 5px;
+      transition: background 0.3s ease;
+    }
+    .modal-content button:hover { background: #a11f1f; }
+    .modal-content .close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 1.5rem;
+      color: #B22222;
+      cursor: pointer;
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-content h1 { font-size: 2.5rem; }
+      .hero-content p { font-size: 1rem; }
+      .section-title { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <div class="navbar">
+      <div class="logo">Glamour Essence</div>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#appointment">Book Appointment</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1 class="animate__animated animate__fadeInDown">Welcome to Glamour Essence</h1>
+      <p class="animate__animated animate__fadeInUp">Indulge in our premium pedicure, manicure, and lash services. Experience luxury, elegance, and true care.</p>
+      <button class="btn animate__animated animate__fadeInUp" onclick="document.getElementById('appointment').scrollIntoView({ behavior: 'smooth' });">Book an Appointment</button>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <h2 class="section-title animate__animated animate__fadeInDown">Our Services</h2>
+    <div class="services">
+      <div class="service animate__animated animate__fadeInUp">
+        <i class="fas fa-foot"></i>
+        <h3>Pedicure</h3>
+        <p>Smooth, soft, and impeccably cared-for feet.</p>
+      </div>
+      <div class="service animate__animated animate__fadeInUp animate__delay-1s">
+        <i class="fas fa-hand-sparkles"></i>
+        <h3>Manicure</h3>
+        <p>Elegant nails with precise detailing and creative flair.</p>
+      </div>
+      <div class="service animate__animated animate__fadeInUp animate__delay-2s">
+        <i class="fas fa-eye"></i>
+        <h3>Lashes</h3>
+        <p>Stunning lash extensions that enhance your natural beauty.</p>
+      </div>
+      <!-- You can add more services if needed -->
+    </div>
+  </section>
+
+  <!-- Appointment Booking Section -->
+  <section id="appointment">
+    <h2 class="section-title animate__animated animate__fadeInDown">Book Your Appointment</h2>
+    <div class="appointment">
+      <h2>Schedule a Visit</h2>
+      <form id="preorderForm" action="https://formsubmit.co/your-email@example.com" method="POST">
+        <!-- Hidden input for transaction reference (if needed) -->
+        <input type="hidden" id="reference" name="reference" value="">
+        <input type="text" id="name" name="name" placeholder="Your Full Name" required>
+        <input type="email" id="email" name="email" placeholder="Your Email Address" required>
+        <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required>
+        <input type="text" id="address" name="address" placeholder="Your Address" required>
+        <select id="service" name="service" required>
+          <option value="">Select Service</option>
+          <option value="pedicure">Pedicure</option>
+          <option value="manicure">Manicure</option>
+          <option value="lashes">Lashes</option>
+        </select>
+        <input type="date" id="date" name="date" required>
+        <select id="time" name="time" required>
+          <option value="">Select Time Slot</option>
+          <option value="09am-11am">09 AM - 11 AM</option>
+          <option value="11am-01pm">11 AM - 01 PM</option>
+          <option value="01pm-03pm">01 PM - 03 PM</option>
+          <option value="03pm-05pm">03 PM - 05 PM</option>
+        </select>
+        <textarea id="instructions" name="instructions" rows="4" placeholder="Additional Message (Optional)"></textarea>
+        <!-- Pay & Confirm button will trigger payment -->
+        <button type="button" id="paystack-button">Pay & Confirm Appointment <i class="fas fa-credit-card"></i></button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery">
+    <h2 class="section-title animate__animated animate__fadeInDown">Our Gallery</h2>
+    <div class="gallery">
+      <img src="https://source.unsplash.com/500x500/?manicure" alt="Manicure">
+      <img src="https://source.unsplash.com/500x500/?pedicure" alt="Pedicure">
+      <img src="https://source.unsplash.com/500x500/?lashes" alt="Lashes">
+      <img src="https://source.unsplash.com/500x500/?nails" alt="Nails">
+      <img src="https://source.unsplash.com/500x500/?beauty" alt="Beauty">
+      <img src="https://source.unsplash.com/500x500/?spa" alt="Spa">
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials">
+    <h2 class="section-title animate__animated animate__fadeInDown">Testimonials</h2>
+    <div class="testimonials">
+      <p>"I felt completely pampered from start to finish. My nails and lashes have never looked better!"</p>
+      <h4>- Adwoa</h4>
+      <p>"The pedicure was divine and the ambiance was so relaxing. Highly recommend their services!"</p>
+      <h4>- Kwame</h4>
+      <p>"Professional, artistic, and luxurious. A truly transformative beauty experience."</p>
+      <h4>- Efua</h4>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq">
+    <h2 class="section-title animate__animated animate__fadeInDown">Frequently Asked Questions</h2>
+    <div class="faq">
+      <div class="faq-item">
+        <h4 onclick="this.nextElementSibling.style.display = (this.nextElementSibling.style.display === 'block' ? 'none' : 'block')">
+          How do I book an appointment?
+        </h4>
+        <p>Simply fill out the appointment form above and click "Pay & Confirm Appointment".</p>
+      </div>
+      <div class="faq-item">
+        <h4 onclick="this.nextElementSibling.style.display = (this.nextElementSibling.style.display === 'block' ? 'none' : 'block')">
+          What payment methods do you accept?
+        </h4>
+        <p>We accept card payments via our secure Paystack gateway.</p>
+      </div>
+      <div class="faq-item">
+        <h4 onclick="this.nextElementSibling.style.display = (this.nextElementSibling.style.display === 'block' ? 'none' : 'block')">
+          Do I need to book in advance?
+        </h4>
+        <p>Yes, appointments are required to ensure availability and a personalized experience.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2 class="section-title animate__animated animate__fadeInDown">Contact Us</h2>
+    <div class="contact">
+      <form id="contactForm" action="https://formsubmit.co/your-email@example.com" method="POST">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message <i class="fas fa-paper-plane"></i></button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Glamour Essence Salon. All Rights Reserved.</p>
+    <p>Follow us:
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-whatsapp"></i></a>
+    </p>
+  </footer>
+
+  <!-- Hidden Confirmation Modal for Appointment Booking -->
+  <div id="confirmationModal" class="modal">
+    <div class="modal-content animate__animated animate__zoomIn">
+      <span class="close" onclick="closeConfirmationModal()">&times;</span>
+      <h3>Appointment Confirmation</h3>
+      <p>
+        Your appointment has been confirmed!<br>
+        Please note:<br>
+        &bull; Your service will be scheduled shortly.<br>
+        &bull; Kindly await confirmation via email or SMS.<br>
+        &bull; Transaction Reference: <span id="modalReference"></span>
+      </p>
+      <button onclick="copyReference()">Copy Reference</button>
+      <button onclick="confirmOrder()">OK</button>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // Scroll to top on page load
+    window.onload = function() {
+      window.scrollTo(0, 0);
+    };
+
+    document.addEventListener("DOMContentLoaded", function () {
+      console.log("DOM fully loaded.");
+      // Attach event listener to the Paystack button
+      const payButton = document.getElementById("paystack-button");
+      if (payButton) {
+        payButton.addEventListener("click", function (e) {
+          e.preventDefault();
+          console.log("Paystack button clicked.");
+          if (validateForm()) {
+            payWithPaystack();
+          }
+        });
+      } else {
+        console.error("Paystack button not found.");
+      }
+      
+      // Contact form submission with fetch
+      const contactForm = document.getElementById("contactForm");
+      if(contactForm) {
+        contactForm.addEventListener("submit", function(e) {
+          e.preventDefault();
+          const form = this;
+          const formData = new FormData(form);
+          fetch(form.action, {
+            method: "POST",
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+          })
+          .then(response => {
+            if (response.ok) {
+              alert("Thanks! Your message was sent successfully. We'll get back to you ASAP!");
+              location.reload();
+            } else {
+              alert("Oops! There was a problem sending your message.");
+            }
+          })
+          .catch(error => {
+            alert("Oops! There was a problem sending your message.");
+          });
+        });
+      }
+    });
+
+    // Prices for individual portions (bulk is fixed at 300 cedis)
+    const dishPrices = {
+      jollof: 100,
+      "fried-rice": 120,
+      "oil-rice": 75,
+      "special-combo": 150
+    };
+
+    // Basic form validation for the appointment form
+    function validateForm() {
+      const name = document.getElementById("name");
+      const email = document.getElementById("email");
+      const phone = document.getElementById("phone");
+      const address = document.getElementById("address");
+      const dish = document.getElementById("dish");
+      const portion = document.getElementById("portion");
+      const date = document.getElementById("date");
+      const time = document.getElementById("time");
+
+      let isValid = true;
+      let errorMessages = [];
+
+      if (!/^\S+\s+\S+/.test(name.value.trim())) {
+        errorMessages.push("Please enter your FULL NAME (first and last).");
+        isValid = false;
+      }
+
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+        errorMessages.push("Please enter a valid email address.");
+        isValid = false;
+      }
+
+      if (!/^\d{10}$/.test(phone.value.trim())) {
+        errorMessages.push("Please enter a valid 10-digit phone number.");
+        isValid = false;
+      }
+
+      if (address.value.trim() === "") {
+        errorMessages.push("Please enter your residential address.");
+        isValid = false;
+      }
+
+      if (!dish.value) {
+        errorMessages.push("Please select a service.");
+        isValid = false;
+      }
+      
+      if (!portion.value) {
+        errorMessages.push("Please select a package type.");
+        isValid = false;
+      }
+
+      if (!isValid) {
+        alert("⚠️ Please fix the following errors before proceeding:\n\n" + errorMessages.join("\n"));
+      }
+      return isValid;
+    }
+
+    function payWithPaystack() {
+      console.log("Initiating Paystack payment...");
+      const dish = document.getElementById("dish").value;
+      const portion = document.getElementById("portion").value;
+      let price = dishPrices[dish] || 0;
+      if (portion === "bulk") price = 300;
+      const amount = price * 100; // Convert to pesewas
+
+      const handler = PaystackPop.setup({
+        key: 'pk_test_297586e51710e83d3c159bfe71ff45c7e23411fa', // Replace with your Paystack test key
+        email: document.getElementById("email").value,
+        amount: amount,
+        currency: "GHS",
+        ref: "ORDER_" + Math.floor(Math.random() * 1000000000),
+        onClose: function () {
+          alert("Payment cancelled or unsuccessful. Please try again.");
+        },
+        callback: function (response) {
+          console.log("Payment successful. Ref:", response.reference);
+          // Set the reference number in the hidden input field so it's included in form data
+          document.getElementById("reference").value = response.reference;
+          // Show the confirmation modal with the transaction reference
+          showConfirmationModal(response.reference);
+        }
+      });
+      handler.openIframe();
+    }
+
+    function showConfirmationModal(ref) {
+      // Set the transaction reference in the modal
+      document.getElementById("modalReference").textContent = ref;
+      // Display the modal
+      const modal = document.getElementById("confirmationModal");
+      modal.classList.add("active");
+      modal.style.display = "block";
+    }
+
+    function closeConfirmationModal() {
+      const modal = document.getElementById("confirmationModal");
+      modal.classList.remove("active");
+      modal.style.display = "none";
+    }
+
+    function confirmOrder() {
+      closeConfirmationModal();
+      submitFormData();
+    }
+
+    function submitFormData() {
+      console.log("Submitting form data via FormSubmit using fetch...");
+      const form = document.getElementById("preorderForm");
+      const formData = new FormData(form);
+      fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(response => {
+        if (response.ok) {
+          console.log("Form submitted successfully.");
+          // Refresh the page to clear fields
+          location.reload();
+        } else {
+          alert("There was an error processing your appointment. Please try again.");
+        }
+      })
+      .catch(error => {
+        console.error("Form submission error:", error);
+        alert("There was an error processing your appointment. Please try again.");
+      });
+    }
+
+    function copyReference() {
+      const ref = document.getElementById("reference").value;
+      navigator.clipboard.writeText(ref)
+        .then(() => {
+          alert("Reference copied to clipboard: " + ref);
+        })
+        .catch(err => {
+          alert("Unable to copy reference. Please copy manually: " + ref);
+        });
+    }
+
+    // Optional modal functions for service details
+    function openModal(modalId) {
+      document.getElementById(modalId).classList.add("active");
+    }
+    function closeModal(modalId) {
+      document.getElementById(modalId).classList.remove("active");
+    }
+    
+    // FAQ Accordion functionality
+    document.querySelectorAll('.faq-item h4').forEach(header => {
+      header.addEventListener('click', function() {
+        const content = this.nextElementSibling;
+        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+      });
+    });
+  </script>
+</body>
+</html>
