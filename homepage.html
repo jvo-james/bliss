@@ -346,6 +346,22 @@
       }
       .hero h1 { font-size: 3rem; }
     }
+
+     @media (max-width: 768px) {
+      nav { padding: 10px 15px; flex-wrap: wrap; }
+      nav .logo { font-size: 1.5em; }
+      nav ul {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 10px;
+      }
+      nav ul li { flex: 1 1 auto; text-align: center; }
+      nav ul li a { font-size: 0.9em; padding: 5px 0; }
+    }
+
   </style>
 </head>
 <body>
@@ -406,7 +422,7 @@
         <p>Accentuate your eyes with our expert lash treatments designed to provide volume, length, and a natural allure.</p>
       </div>
     </div>
-     <a href="https://jvo-james.github.io/bliss/services.html" class="learn">Learn More</a>
+  <center>   <a href="https://jvo-james.github.io/bliss/services.html" class="learn">Learn More</a></center>
   </section>
   
   <!-- Process Section -->
