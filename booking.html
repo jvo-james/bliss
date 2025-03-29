@@ -402,52 +402,7 @@
   
   <!-- Paystack & FormSubmit Integration Script -->
   <!-- Include Paystack inline script -->
-  <script src="https://js.paystack.co/v1/inline.js"></script>
-  <script>
-    function payWithPaystack() {
-      // Get the booking form element
-      var form = document.getElementById('bookingForm');
-
-      // Check if the form is valid using the HTML5 validation API
-      if (!form.checkValidity()) {
-        alert("Please fill out all fields correctly.");
-        form.reportValidity();
-        return false;
-      }
-      
-      // Retrieve the email value for Paystack
-      var email = document.getElementById('email').value;
-      // Example: 5000 kobo (i.e., 50.00 NGN) – adjust the amount as needed.
-      var amount = 5000;
-
-      // Initialize Paystack payment
-      var handler = PaystackPop.setup({
-        key: 'pk_test_297586e51710e83d3c159bfe71ff45c7e23411fa', // Replace with your actual Paystack public key
-        email: email,
-        amount: amount,
-        currency: 'NGN',
-        ref: '' + Math.floor((Math.random() * 1000000000) + 1),
-        metadata: {
-          custom_fields: [
-            {
-              display_name: "Full Name",
-              variable_name: "full_name",
-              value: document.getElementById('fullName').value
-            }
-          ]
-        },
-        callback: function(response) {
-          // On successful payment, submit the form (which redirects to success.html)
-          form.submit();
-        },
-        onClose: function() {
-          alert('Payment window closed.');
-        }
-      });
-      handler.openIframe();
-    }
-  </script>
-
+<script src="https://js.paystack.co/v1/inline.js"></script>
 <script>
   function payWithPaystack() {
     // Get the booking form element
@@ -503,8 +458,8 @@
         ]
       },
       callback: function(response) {
-        // On successful payment, submit the form
-        form.submit();
+        // Redirect to success.html with the reference number in the URL
+        window.location.href = "https://jvo-james.github.io/bliss/success.html?reference=" + response.reference;
       },
       onClose: function() {
         alert('Payment window closed.');
@@ -513,6 +468,7 @@
     handler.openIframe();
   }
 </script>
+
 
 </body>
 </html>
