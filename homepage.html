@@ -258,7 +258,7 @@
       font-size: 1.2rem;
       margin-bottom: 2rem;
     }
-    .appointment-content button {
+    .appointment-content a {
       background: #d76a9a;
       border: none;
       padding: 0.9rem 2.5rem;
@@ -268,7 +268,7 @@
       cursor: pointer;
       transition: background 0.3s ease;
     }
-    .appointment-content button:hover {
+    .appointment-content a:hover {
       background: #bf5684;
     }
     
@@ -452,7 +452,7 @@
     <div class="appointment-content">
       <h2>Ready for a Transformation?</h2>
       <p>Book your appointment today and step into a world of beauty and bliss.</p>
-      <button onclick="https://jvo-james.github.io/bliss/booking.html">Book Now</button>
+      <a href="https://jvo-james.github.io/bliss/booking.html">Book Now</a>
     </div>
   </section>
   <!-- Contact Section -->
@@ -461,7 +461,7 @@
     <div class="contact-container animate__animated animate__fadeInUp">
       <div class="contact-info">
         <h3>Contact Info</h3>
-        <p><i class="fas fa-phone"></i> +123 456 7890</p>
+        <p><i class="fas fa-phone"></i>0594 121 246</p>
         <p><i class="fas fa-envelope"></i> info@chiccohair.com</p>
         <p><i class="fas fa-map-marker-alt"></i> 456 Style Avenue, Trend City</p>
       </div>
@@ -495,8 +495,7 @@
   
   <!-- JavaScript for Smooth Scroll & Animation (Optional Enhancements) -->
   <script>
-    // You can add more interactivity here if desired.
-    // For example, using IntersectionObserver to animate elements on scroll.
+  
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if(entry.isIntersecting){
