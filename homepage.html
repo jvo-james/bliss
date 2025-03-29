@@ -8,21 +8,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <!-- Font Awesome for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-p+U5G0jYF0B+uC7Wf6Nv1zQ+2z2V/AXmZ5kJ5fChG+jFwzBq3k8tU3kQeG7vNUU2yA5P+e/0h1N0HJ7r7m0KZQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet" />
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- Animate.css for animations -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-
   <style>
     /* Global Styles */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      scroll-behavior: smooth;
+      scroll-behaviour: smooth;
     }
     body {
       font-family: 'Montserrat', sans-serif;
@@ -78,10 +72,6 @@
       color: #fff;
       padding: 0 1rem;
     }
-.hero::before {
-            background: rgba(0, 0, 0, 0.9);
-         }
-
     .hero h1 {
       font-family: 'Playfair Display', serif;
       font-size: 3.8rem;
@@ -272,7 +262,7 @@
       background: #bf5684;
     }
     
-   .learn {
+    .learn {
       background: #d76a9a;
       border: none;
       padding: 0.9rem 2.5rem;
@@ -282,9 +272,17 @@
       cursor: pointer;
       transition: background 0.3s ease;
     }
+    
     /* Contact Section */
-    .contact { padding: 60px 20px; background: var(--light-bg); }
-    .contact h2 { text-align: center; margin-bottom: 40px; color: #d76a9a; }
+    .contact {
+      padding: 60px 20px;
+      background: #f7f7f7;
+    }
+    .contact h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #d76a9a;
+    }
     .contact-container {
       max-width: 800px;
       margin: auto;
@@ -296,7 +294,7 @@
     }
     .contact-info, .contact-form {
       flex: 1 1 350px;
-      background: var(--light-bg);
+      background: #f7f7f7;
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -306,7 +304,10 @@
       margin-bottom: 15px;
       font-size: 1.8em;
     }
-    .contact-info p { font-size: 1.1em; margin-bottom: 10px; }
+    .contact-info p {
+      font-size: 1.1em;
+      margin-bottom: 10px;
+    }
     .contact-form input, .contact-form textarea {
       width: 100%;
       padding: 12px;
@@ -325,10 +326,8 @@
       cursor: pointer;
       transition: background 0.3s;
     }
-    .contact-form button:hover { background: #8a1616; }
-
-
-
+    .contact-form button:hover { background: #bf5684; }
+    
     /* Footer */
     footer {
       background: #333;
@@ -338,46 +337,78 @@
     }
     footer p { font-size: 0.9rem; }
     
-    /* Responsive */
+    /* ------------------------ */
+    /* Enhanced Mobile Styling  */
+    /* ------------------------ */
+    
+    /* For screens up to 768px */
     @media (max-width: 768px) {
-      .about .about-container, .process-container {
+      .nav-container {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+      .hero p {
+        font-size: 1.1rem;
+      }
+      .appointment-content h2 {
+        font-size: 2.5rem;
+      }
+      .appointment-content p, 
+      .appointment-content a {
+        font-size: 1rem;
+      }
+    }
+    
+    /* For screens up to 480px */
+    @media (max-width: 480px) {
+      .nav-logo {
+        font-size: 1.5rem;
+      }
+      .nav-menu li {
+        margin: 0.3rem 0;
+      }
+      .hero {
+        padding: 0 0.5rem;
+      }
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+      .about .about-container {
+        flex-direction: column;
+        text-align: center;
+      }
+      .about-text, .about-img {
+        flex: 1 1 100%;
+      }
+      .services-container {
+        grid-template-columns: 1fr;
+      }
+      .process-container {
         flex-direction: column;
         align-items: center;
       }
-      .hero h1 { font-size: 3rem; }
+      .contact-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .contact-info, .contact-form {
+        width: 100%;
+        max-width: 350px;
+      }
+      footer p {
+        font-size: 0.8rem;
+      }
     }
-
-   @media screen and (max-width: 768px) {
-  .nav-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .nav-menu {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding: 10px 0;
-    text-align: center;
-  }
-
-  .nav-menu li {
-    width: 100%;
-  }
-
-  .nav-menu a {
-    display: block;
-    padding: 12px;
-    width: 100%;
-    font-size: 1.1rem;
-  }
-
-  .nav-menu a:hover {
-    background-color: #555;
-  }
-}
-
   </style>
 </head>
 <body>
@@ -410,7 +441,7 @@
       <div class="about-text">
         <h2>About Beauty Bliss</h2>
         <p>At Beauty Bliss Studio, we merge art with technology to redefine self-care. Our dedicated team delivers a transformative experience—where every treatment is crafted with passion and precision.</p>
-        <p>We believe in a personalized approach that not only beautifies but also rejuvenates your body and mind. Step into our haven and let us bring out the best in you.</p>
+        <p>We believe in a personalised approach that not only beautifies but also rejuvenates your body and mind. Step into our haven and let us bring out the best in you.</p>
       </div>
       <div class="about-img">
         <img src="nails.webp" alt="About Beauty Bliss">
@@ -438,7 +469,7 @@
         <p>Accentuate your eyes with our expert lash treatments designed to provide volume, length, and a natural allure.</p>
       </div>
     </div>
-  <center>   <a href="https://jvo-james.github.io/bliss/services.html" class="learn">Learn More</a></center>
+    <center><a href="https://jvo-james.github.io/bliss/services.html" class="learn">Learn More</a></center>
   </section>
   
   <!-- Process Section -->
@@ -452,7 +483,7 @@
       </div>
       <div class="process-step">
         <i class="fas fa-paint-brush"></i>
-        <h4>Personalized Design</h4>
+        <h4>Personalised Design</h4>
         <p>We combine modern trends with timeless elegance to craft your look.</p>
       </div>
       <div class="process-step">
@@ -471,6 +502,7 @@
       <a href="https://jvo-james.github.io/bliss/booking.html">Book Now</a>
     </div>
   </section>
+  
   <!-- Contact Section -->
   <section class="contact" id="contact">
     <h2 class="section-title animate__animated animate__fadeInDown">Get in Touch</h2>
@@ -496,7 +528,6 @@
     </div>
   </section>
 
-
   <!-- Footer -->
   <footer>
     <div class="container">
@@ -511,7 +542,6 @@
   
   <!-- JavaScript for Smooth Scroll & Animation (Optional Enhancements) -->
   <script>
-  
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if(entry.isIntersecting){
