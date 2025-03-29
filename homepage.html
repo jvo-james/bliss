@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Beauty Bliss Studio - Home</title>
-   <!-- Google Fonts -->
+<!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <!-- Font Awesome for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-p+U5G0jYF0B+uC7Wf6Nv1zQ+2z2V/AXmZ5kJ5fChG+jFwzBq3k8tU3kQeG7vNUU2yA5P+e/0h1N0HJ7r7m0KZQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- Animate.css for animations -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
- <style>
+   <style>
     /* Global Styles */
     * {
       margin: 0;
@@ -147,6 +147,14 @@
     .about-img:hover img {
       transform: scale(1.05);
     }
+    /* Decorative image in About Section */
+    .about-decorative {
+      width: 100%;
+      max-width: 600px;
+      margin: 1rem auto;
+      display: block;
+      border-radius: 15px;
+    }
     
     /* Services Section */
     .services {
@@ -171,6 +179,13 @@
     .service-card:hover {
       transform: translateY(-10px);
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+    /* Service images styling */
+    .service-img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 1rem;
     }
     .service-card i {
       font-size: 3rem;
@@ -422,10 +437,8 @@
     <div class="container nav-container">
       <div class="nav-logo"> <i class="fas fa-spa"></i>Beauty Bliss</div>
       <ul class="nav-menu">
-       
         <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
         <li><a href="https://jvo-james.github.io/bliss/services.html"><i class="fas fa-concierge-bell"></i> Services</a></li>
-       
         <li><a href="#appointment"><i class="fas fa-calendar-check"></i> Book Now</a></li>
       </ul>
     </div>
@@ -436,7 +449,9 @@
     <div>
       <h1>Experience Beauty Beyond the Ordinary</h1>
       <p><i class="fas fa-quote-left"></i> Your ultimate destination for exquisite pedicure, manicure, and lash artistry <i class="fas fa-quote-right"></i></p>
-      <button onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})"><i class="fas fa-arrow-down"></i> Discover More</button>
+      <button onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})">
+        <i class="fas fa-arrow-down"></i> Discover More
+      </button>
     </div>
   </section>
   
@@ -449,9 +464,11 @@
         <p>We believe in a personalised approach that not only beautifies but also rejuvenates your body and mind. Step into our haven and let us bring out the best in you.</p>
       </div>
       <div class="about-img">
-        <img src="nails.webp" alt="About Beauty Bliss">
+        <img src="about2.avif" alt="About Beauty Bliss">
       </div>
     </div>
+    <!-- Decorative Image -->
+    <img src="about1.jpg" alt="Decorative Beauty Bliss" class="about-decorative">
   </section>
   
   <!-- Services Section -->
@@ -459,21 +476,27 @@
     <h2>Our Signature Services</h2>
     <div class="container services-container">
       <div class="service-card">
+        <!-- Service Image -->
+        <img src="pedicure.jpg" alt="Elegant Pedicure" class="service-img">
         <i class="fas fa-tooth"></i>
         <h3>Elegant Pedicure</h3>
         <p>Indulge your feet in a luxurious treatment that includes exfoliation, massage, and an exquisite polish selection.</p>
       </div>
       <div class="service-card">
+        <!-- Service Image -->
+        <img src="spa.jpg" alt="Chic Manicure" class="service-img">
         <i class="fas fa-hand-sparkles"></i>
         <h3>Chic Manicure</h3>
         <p>Our manicure service highlights precision artistry with modern techniques and a vibrant palette to suit your style.</p>
       </div>
       <div class="service-card">
+        <!-- Service Image -->
+        <img src="lash.jpg" alt="Glamorous Lashes" class="service-img">
         <i class="fas fa-eye"></i>
         <h3>Glamorous Lashes</h3>
         <p>Accentuate your eyes with our expert lash treatments designed to provide volume, length, and a natural allure.</p>
       </div>
-    </div>
+    </div><br>
     <center><a href="https://jvo-james.github.io/bliss/services.html" class="learn">Learn More</a></center>
   </section>
   
@@ -504,7 +527,7 @@
     <div class="appointment-content">
       <h2>Ready for a Transformation?</h2>
       <p>Book your appointment today and step into a world of beauty and bliss.</p>
-      <a href="https://jvo-james.github.io/bliss/booking.html">Book Now</a>
+      <a href="https://jvo-james.github.io/bliss/booking.html"><i class="fas fa-calendar-check"></i>Book Now</a>
     </div>
   </section>
   
@@ -538,9 +561,15 @@
     <div class="container">
       <p>&copy; 2025 Beauty Bliss Studio. All Rights Reserved.</p>
       <p>
-        <a href="https://facebook.com" target="_blank" style="color: #fff; margin-right: 1rem;"><i class="fab fa-snapchat"></i></a>
-        <a href="https://instagram.com" target="_blank" style="color: #fff; margin-right: 1rem;"><i class="fab fa-instagram"></i></a>
-        <a href="https://twitter.com" target="_blank" style="color: #fff;"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://facebook.com" target="_blank" style="color: #fff; margin-right: 1rem;">
+          <i class="fab fa-snapchat"></i>
+        </a>
+        <a href="https://instagram.com" target="_blank" style="color: #fff; margin-right: 1rem;">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://twitter.com" target="_blank" style="color: #fff;">
+          <i class="fab fa-whatsapp"></i>
+        </a>
       </p>
     </div>
   </footer>
