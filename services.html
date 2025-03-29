@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Our Services | Beauty Bliss Studio</title>
-  <!-- Google Fonts -->
+<!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <!-- Font Awesome for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-p+U5G0jYF0B+uC7Wf6Nv1zQ+2z2V/AXmZ5kJ5fChG+jFwzBq3k8tU3kQeG7vNUU2yA5P+e/0h1N0HJ7r7m0KZQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -15,8 +15,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- Animate.css for animations -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-
-  
   <style>
     /* Global Styles */
     * {
@@ -142,6 +140,14 @@
       border-bottom: 1px solid #eee;
       padding-bottom: 3rem;
     }
+    /* New service image styling */
+    .service-image {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
     .service-header {
       display: flex;
       align-items: center;
@@ -202,7 +208,22 @@
       color: #666;
       margin-bottom: 0.5rem;
     }
-
+    
+    /* Book Now Button */
+    .book-now {
+      display: inline-block;
+      background: #d76a9a;
+      color: #fff;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      margin-top: 1.5rem;
+      transition: background 0.3s ease;
+    }
+    .book-now:hover {
+      background: #bf5684;
+    }
+    
     /* Special Offers/Promotions Section */
     .offers {
       background: #fff;
@@ -250,8 +271,7 @@
       color: #555;
     }
     
-
-      /* Footer */
+    /* Footer */
     footer {
       background: #333;
       color: #fff;
@@ -263,14 +283,12 @@
     
     /* Responsive */
     @media (max-width: 768px) {
-      .about .about-container, .process-container, .offers-container {
+      .service-content {
         flex-direction: column;
-        align-items: center;
       }
       .hero h1 { font-size: 3rem; }
-      .value-items, .offers-container { flex-direction: column; }
     }
-
+    
     /* Animations */
     .animate-fadeIn {
       animation: fadeIn 1.2s both;
@@ -278,14 +296,6 @@
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
-    }
-    
-    /* Responsive */
-    @media (max-width: 768px) {
-      .service-content {
-        flex-direction: column;
-      }
-      .hero h1 { font-size: 3rem; }
     }
   </style>
 </head>
@@ -296,7 +306,6 @@
       <div class="nav-logo"><i class="fas fa-spa"></i> Beauty Bliss</div>
       <ul class="nav-menu">
         <li><a href="https://jvo-james.github.io/bliss/homepage.html"><i class="fas fa-home"></i> Home</a></li>
-      
       </ul>
     </div>
   </nav>
@@ -314,7 +323,9 @@
     <h2 class="animate-fadeIn">Indulge in Excellence</h2>
     
     <!-- Pedicure Service -->
-    <div class="service-item animate__animated animate__fadeInUp" id="pedicure">
+    <div class="service-item animate-fadeIn" id="pedicure">
+      <!-- Service Image -->
+      <img src="about1.jpg" alt="Elegant Pedicure" class="service-image">
       <div class="service-header">
         <i class="fas fa-shoe-prints"></i>
         <h3>Elegant Pedicure</h3>
@@ -335,12 +346,15 @@
             <li>Deluxe Spa Pedicure: <strong>GHS 150</strong></li>
             <li>Therapeutic Pedicure: <strong>GHS 200</strong></li>
           </ul>
+          <a href="https://jvo-james.github.io/bliss/booking.html" class="book-now">Book Now</a>
         </div>
       </div>
     </div>
     
     <!-- Manicure Service -->
-    <div class="service-item animate__animated animate__fadeInUp" id="manicure">
+    <div class="service-item animate-fadeIn" id="manicure">
+      <!-- Service Image -->
+      <img src="about2.avif" alt="Chic Manicure" class="service-image">
       <div class="service-header">
         <i class="fas fa-hand-sparkles"></i>
         <h3>Chic Manicure</h3>
@@ -363,12 +377,15 @@
             <li>Acrylic Nails (Full Set): <strong>GHS 200</strong></li>
             <li>Nail Art & Embellishments: <strong>Starts at GHS 50</strong></li>
           </ul>
+          <a href="https://jvo-james.github.io/bliss/booking.html" class="book-now">Book Now</a>
         </div>
       </div>
     </div>
     
     <!-- Lashes Service -->
-    <div class="service-item animate__animated animate__fadeInUp" id="lashes">
+    <div class="service-item animate-fadeIn" id="lashes">
+      <!-- Service Image -->
+      <img src="lash.jpg" alt="Glamorous Lashes" class="service-image">
       <div class="service-header">
         <i class="fas fa-eye"></i>
         <h3>Glamorous Lashes</h3>
@@ -391,12 +408,13 @@
             <li>Lash Lift & Tint: <strong>GHS 150</strong></li>
             <li>Refill Service: <strong>GHS 130</strong></li>
           </ul>
+          <a href="https://jvo-james.github.io/bliss/booking.html" class="book-now">Book Now</a>
         </div>
       </div>
     </div>
   </div>
 
-   <!-- Special Offers/Promotions Section -->
+  <!-- Special Offers/Promotions Section -->
   <section id="offers" class="offers">
     <div class="container">
       <h2>Special Offers & Promotions <i class="fas fa-tags"></i></h2>
@@ -425,12 +443,18 @@
     <div class="container">
       <p>&copy; 2025 Beauty Bliss Studio. All Rights Reserved.</p>
       <p>
-        <a href="https://facebook.com" target="_blank" style="color: #fff; margin-right: 1rem;"><i class="fab fa-facebook"></i></a>
-        <a href="https://instagram.com" target="_blank" style="color: #fff; margin-right: 1rem;"><i class="fab fa-instagram"></i></a>
-        <a href="https://twitter.com" target="_blank" style="color: #fff;"><i class="fab fa-twitter"></i></a>
+        <a href="https://facebook.com" target="_blank" style="color: #fff; margin-right: 1rem;">
+          <i class="fab fa-facebook"></i>
+        </a>
+        <a href="https://instagram.com" target="_blank" style="color: #fff; margin-right: 1rem;">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://twitter.com" target="_blank" style="color: #fff;">
+          <i class="fab fa-twitter"></i>
+        </a>
       </p>
     </div>
   </footer>
-
+  
 </body>
 </html>
